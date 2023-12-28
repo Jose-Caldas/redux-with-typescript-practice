@@ -1,16 +1,14 @@
+import { ButtonHTMLAttributes } from 'react'
 import * as Styles from './styles'
 
-export interface CustomButtonProps {
+export type CustomButtonProps = {
   children: React.ReactNode
   startIcon: React.ReactNode
-}
+} & ButtonHTMLAttributes<HTMLButtonElement>
 
 const CustomButton = ({ children, startIcon, ...rest }: CustomButtonProps) => {
   return (
-    <Styles.CustomButtonContainer
-      onClick={() => console.log('Clicou')}
-      {...rest}
-    >
+    <Styles.CustomButtonContainer {...rest}>
       {startIcon && <Styles.IconContainer>{startIcon}</Styles.IconContainer>}
 
       {children}

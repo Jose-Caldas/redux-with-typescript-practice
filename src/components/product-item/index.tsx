@@ -1,6 +1,8 @@
 import { BsCartPlus } from 'react-icons/bs'
 import CustomButton from '../custom-button'
 import * as S from './styles'
+import { addProduct } from '../../features/cart/cartSlice'
+import { useAppDispatch } from '../../app/hooks'
 
 interface ProductProps {
   id: string
@@ -14,10 +16,16 @@ interface Product {
 }
 
 function ProductItem({ product }: Product) {
+  const dispatch = useAppDispatch()
+
+  const handleProductClick = () => {
+    dispatch(addProduct(product))
+  }
+
   return (
     <S.ProductContainer>
       <S.ProductImage imageurl={product.imageUrl}>
-        <CustomButton startIcon={<BsCartPlus />}>
+        <CustomButton startIcon={<BsCartPlus />} onClick={handleProductClick}>
           Adicionar ao carrinho
         </CustomButton>
       </S.ProductImage>

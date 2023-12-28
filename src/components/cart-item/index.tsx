@@ -1,6 +1,12 @@
 import { AiOutlinePlus, AiOutlineMinus, AiOutlineClose } from 'react-icons/ai'
 
 import * as S from './styles'
+import { useAppDispatch } from '../../app/hooks'
+import {
+  decreaseProductQuantity,
+  increaseProductQuantity,
+  removeProductFromCart,
+} from '../../features/cart/cartSlice'
 
 export interface ProductProps {
   id: string
@@ -15,11 +21,19 @@ export interface Product {
 }
 
 function CartItem({ product }: Product) {
-  const handleRemoveClick = () => {}
+  const dispatch = useAppDispatch()
 
-  const handleIncreaseClick = () => {}
+  const handleRemoveClick = () => {
+    dispatch(removeProductFromCart(product.id))
+  }
 
-  const handleDecreaseClick = () => {}
+  const handleIncreaseClick = () => {
+    dispatch(increaseProductQuantity(product.id))
+  }
+
+  const handleDecreaseClick = () => {
+    dispatch(decreaseProductQuantity(product.id))
+  }
 
   return (
     <S.CartItemContainer>

@@ -22,6 +22,10 @@ export const CartContainer = styled.div<CartContainerProps>`
   p {
     color: #222222;
   }
+
+  svg {
+    color: #222222;
+  }
 `
 
 export const CartEscapeArea = styled.div`
