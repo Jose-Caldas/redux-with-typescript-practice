@@ -23,7 +23,7 @@ function CartItem({ product }: Product) {
 
   return (
     <S.CartItemContainer>
-      <S.CartItemImage imageUrl={product.imageUrl} />
+      <S.CartItemImage imageurl={product.imageUrl} />
 
       <S.CartItemInfo>
         <p>{product.name}</p>

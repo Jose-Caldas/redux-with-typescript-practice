@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 type CartContainerProps = {
-  isVisible: boolean
+  isvisible: boolean
 }
 
 export const CartContainer = styled.div<CartContainerProps>`
@@ -15,8 +15,8 @@ export const CartContainer = styled.div<CartContainerProps>`
   background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: flex-end;
-  visibility: ${(props) => (props.isVisible ? 'visible' : 'hidden')};
-  opacity: ${(props) => (props.isVisible ? '1' : '0')};
+  visibility: ${(props) => (props.isvisible ? 'visible' : 'hidden')};
+  opacity: ${(props) => (props.isvisible ? '1' : '0')};
   transition: all 0.3s ease;
 
   p {
