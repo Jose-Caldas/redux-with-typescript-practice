@@ -1,0 +1,22 @@
+.header_container {
+  background-color: #222222;
+  color: #ffffff;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+.header_btn {
+  background: transparent;
+  color: #ffffff;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+p {
+  font-size: 1.5rem;
+}
