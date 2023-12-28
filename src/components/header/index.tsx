@@ -3,12 +3,15 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import * as S from './styles'
 import Cart from '../cart'
 import { useState } from 'react'
+import { selectProductsCount } from '../../app/cartSelectors'
 
 const Header = () => {
   const [cartIsVisible, setCartIsVisible] = useState(false)
   const { currentUser } = useAppSelector(
     (rootReducer) => rootReducer.userReducer
   )
+
+  const productsCount = useAppSelector(selectProductsCount)
 
   const dispatch = useAppDispatch()
 
@@ -26,7 +29,7 @@ const Header = () => {
     <S.HeaderContainer>
       <S.HeaderContent>
         <S.HeaderLogo>Shopping</S.HeaderLogo>
-        {currentUser && <p>Bem-vindo, José Caldas!</p>}
+        {currentUser && <p>Usuário logado</p>}
         <S.HeaderButton type="button">
           {currentUser ? (
             <div onClick={handleLogoutClick} title="Sair">
@@ -39,7 +42,7 @@ const Header = () => {
           )}
         </S.HeaderButton>
         <S.HeaderViewCart title="Carrinho" onClick={handleCartClick}>
-          Carrinho
+          Carrinho ({productsCount})
         </S.HeaderViewCart>
         <Cart isVisible={cartIsVisible} setIsVisible={setCartIsVisible} />
       </S.HeaderContent>
