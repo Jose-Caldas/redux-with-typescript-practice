@@ -47,10 +47,24 @@ export const CartContent = styled.div`
 export const CartTitle = styled.p`
   font-size: 1.325rem;
   font-weight: 600;
-  margin-bottom: 15px;
 `
 export const CartTotal = styled.p`
   font-weight: 600;
   font-size: 1.125rem;
+`
+
+export const CartHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 15px;
+
+  button {
+    border: none;
+    background: transparent;
+    color: #ef233c;
+    font-size: 1.325rem;
+
+    cursor: pointer;
+  }
 `

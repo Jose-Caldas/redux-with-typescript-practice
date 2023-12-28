@@ -17,17 +17,16 @@ const Cart = ({ isVisible, setIsVisible }: CartProps) => {
     <S.CartContainer isvisible={isVisible}>
       <S.CartEscapeArea onClick={handleEscapeAreaClick} />
       <S.CartContent>
-        <S.CartTitle>Seu Carrinho</S.CartTitle>
-
+        <S.CartHeader>
+          <S.CartTitle>Seu Carrinho</S.CartTitle>
+          <button onClick={() => setIsVisible(false)}>Fechar</button>
+        </S.CartHeader>
         {products.length > 0 ? (
           products.map((product) => (
             <CartItem key={product.name} product={product} />
           ))
         ) : (
-          <div>
-            <p>Carrinho vazio!</p>
-            <div onClick={() => setIsVisible(false)}>X</div>
-          </div>
+          <p>Carrinho vazio!</p>
         )}
         {products.length > 0 && (
           <S.CartTotal>

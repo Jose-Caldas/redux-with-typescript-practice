@@ -1,9 +1,10 @@
 import { loginUser, logoutUser } from '../../features/user/userSlice'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import * as S from './styles'
 import Cart from '../cart'
 import { useState } from 'react'
 import { selectProductsCount } from '../../app/cartSelectors'
+import { FiShoppingCart } from 'react-icons/fi'
+import * as S from './styles'
 
 const Header = () => {
   const [cartIsVisible, setCartIsVisible] = useState(false)
@@ -29,7 +30,6 @@ const Header = () => {
     <S.HeaderContainer>
       <S.HeaderContent>
         <S.HeaderLogo>Shopping</S.HeaderLogo>
-        {currentUser && <p>Usuário logado</p>}
         <S.HeaderButton type="button">
           {currentUser ? (
             <div onClick={handleLogoutClick} title="Sair">
@@ -42,7 +42,8 @@ const Header = () => {
           )}
         </S.HeaderButton>
         <S.HeaderViewCart title="Carrinho" onClick={handleCartClick}>
-          Carrinho ({productsCount})
+          <FiShoppingCart size={22} />
+          <p>({productsCount})</p>
         </S.HeaderViewCart>
         <Cart isVisible={cartIsVisible} setIsVisible={setCartIsVisible} />
       </S.HeaderContent>

@@ -37,10 +37,14 @@ export const HeaderButton = styled.button`
 `
 
 export const HeaderViewCart = styled.div`
+  display: flex;
   font-weight: 500;
-  font-size: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
 
-  &:hover {
-    cursor: pointer;
+  p {
+    font-size: 1.2rem;
   }
 `
