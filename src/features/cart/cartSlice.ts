@@ -1,18 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export interface ProductProps {
+export interface CartSliceProps {
   id: string
-  price: number
-  name: string
-  imageUrl: string
+  img: string
+  title: string
+  reviews: string
+  prevPrice: number
+  newPrice: number
+  company?: string
+  color?: string
+  category?: string
   quantity: number
 }
 
-export interface Product {
-  products: ProductProps[]
+export interface ProductState {
+  products: CartSliceProps[]
 }
 
-const initialState: Product = {
+const initialState: ProductState = {
   products: [],
 }
 

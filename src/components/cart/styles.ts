@@ -41,7 +41,7 @@ export const CartContent = styled.div`
   overflow-y: scroll;
 
   @media (max-width: 768px) {
-    min-width: 85%;
+    min-width: 100%;
   }
 `
 export const CartTitle = styled.p`
@@ -51,13 +51,17 @@ export const CartTitle = styled.p`
 export const CartTotal = styled.p`
   font-weight: 600;
   font-size: 1.125rem;
+
+  span {
+    font-weight: 400;
+  }
 `
 
 export const CartHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 15px;
+  margin-bottom: 2rem;
 
   button {
     border: none;

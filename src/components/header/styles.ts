@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
-  background-color: #222222;
-  color: #ffffff;
+  color: #222222;
   width: 100%;
+  border-bottom: 2px solid #eeee;
 
-  display: flex;
+  /* display: flex;
 
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 
   p {
     font-size: 1.5rem;

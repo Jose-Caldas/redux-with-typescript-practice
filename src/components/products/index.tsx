@@ -1,14 +1,14 @@
-import products from '../../data/products'
-import ProductItem from '../product-item/index'
-import * as Styles from './styles'
+import React from 'react'
+import * as S from './styles'
 
-const Products = () => {
+type ProductsProps = {
+  result: React.ReactNode
+}
+function Products({ result }: ProductsProps) {
   return (
-    <Styles.Container>
-      {products.map((product) => (
-        <ProductItem product={product} key={product.id} />
-      ))}
-    </Styles.Container>
+    <S.Container>
+      <S.Products>{result}</S.Products>
+    </S.Container>
   )
 }
 

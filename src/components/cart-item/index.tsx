@@ -7,20 +7,13 @@ import {
   increaseProductQuantity,
   removeProductFromCart,
 } from '../../features/cart/cartSlice'
+import { IProduct } from '../interface/Product'
 
-export interface ProductProps {
-  id: string
-  price: number
-  name: string
-  imageUrl: string
-  quantity: number
+export interface CartItemProps {
+  product: IProduct
 }
 
-export interface Product {
-  product: ProductProps
-}
-
-function CartItem({ product }: Product) {
+function CartItem({ product }: CartItemProps) {
   const dispatch = useAppDispatch()
 
   const handleRemoveClick = () => {
@@ -37,30 +30,32 @@ function CartItem({ product }: Product) {
 
   return (
     <S.CartItemContainer>
-      <S.CartItemImage imageurl={product.imageUrl} />
+      <S.CartItemImage>
+        <img src={product.img} alt={product.title} />
+      </S.CartItemImage>
 
       <S.CartItemInfo>
-        <p>{product.name}</p>
-        <p>R${product.price}</p>
+        <p>{product.title}</p>
+        <p>R${product.newPrice}</p>
 
         <S.CartItemQuantity>
           <AiOutlineMinus
             size={20}
             onClick={handleDecreaseClick}
-            aria-label={`Decrease quantity of ${product.name}`}
+            aria-label={`Decrease quantity of ${product.title}`}
           />
           <p>{product.quantity}</p>
           <AiOutlinePlus
             size={20}
             onClick={handleIncreaseClick}
-            aria-label={`Increase quantity of ${product.name}`}
+            aria-label={`Increase quantity of ${product.title}`}
           />
         </S.CartItemQuantity>
       </S.CartItemInfo>
 
       <S.RemoveButton
         onClick={handleRemoveClick}
-        aria-label={`Remove ${product.name}`}
+        aria-label={`Remove ${product.title}`}
       >
         <AiOutlineClose size={25} />
       </S.RemoveButton>

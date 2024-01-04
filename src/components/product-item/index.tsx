@@ -3,16 +3,10 @@ import CustomButton from '../custom-button'
 import * as S from './styles'
 import { addProduct } from '../../features/cart/cartSlice'
 import { useAppDispatch } from '../../app/hooks'
-
-interface ProductProps {
-  id: string
-  price: number
-  name: string
-  imageUrl: string
-}
+import { IProduct } from '../interface/Product'
 
 interface Product {
-  product: ProductProps
+  product: IProduct
 }
 
 function ProductItem({ product }: Product) {
@@ -24,15 +18,15 @@ function ProductItem({ product }: Product) {
 
   return (
     <S.ProductContainer>
-      <S.ProductImage imageurl={product.imageUrl}>
+      <S.ProductImage imageurl={product.img}>
         <CustomButton startIcon={<BsCartPlus />} onClick={handleProductClick}>
           Adicionar ao carrinho
         </CustomButton>
       </S.ProductImage>
 
       <S.ProductInfo>
-        <p>{product.name}</p>
-        <p>R${product.price}</p>
+        <p>{product.title}</p>
+        <p>R${product.prevPrice}</p>
       </S.ProductInfo>
     </S.ProductContainer>
   )

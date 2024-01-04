@@ -8,9 +8,7 @@ import * as S from './styles'
 
 const Header = () => {
   const [cartIsVisible, setCartIsVisible] = useState(false)
-  const { currentUser } = useAppSelector(
-    (rootReducer) => rootReducer.userReducer
-  )
+  const { currentUser } = useAppSelector((state) => state.user)
 
   const productsCount = useAppSelector(selectProductsCount)
 
@@ -29,7 +27,6 @@ const Header = () => {
   return (
     <S.HeaderContainer>
       <S.HeaderContent>
-        <S.HeaderLogo>Shopping</S.HeaderLogo>
         <S.HeaderButton type="button">
           {currentUser ? (
             <div onClick={handleLogoutClick} title="Sair">
